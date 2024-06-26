@@ -11,8 +11,8 @@ This custom component requires [Mnb python package](https://github.com/belidzs/m
 The state of the sensor will be:
 * the rate of the currency if only one currency is filtered via `currencies` list
 * if more currencies are filtered via `currencies` list or no filtering is used:
-** `0` for successful data fetch OR
-** `1` for unsuccessful data fetch
+..* `0` for successful data fetch OR
+..* `1` for unsuccessful data fetch
 
 Currency names, rates and units will also be added into the `rates` attribute.
 
