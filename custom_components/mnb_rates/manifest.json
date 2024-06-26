@@ -1,11 +1,11 @@
 {
   "domain": "mnb_rates",
   "name": "MNB rates",
-  "documentation": "https://github.com/amaximus/mnb_rates",
-  "issue_tracker": "https://github.com/amaximus/mnb_rates/issues",
-  "version": "0.0.1",
-  "dependencies": [],
   "codeowners": ["@amaximus"],
+  "dependencies": [],
+  "documentation": "https://github.com/amaximus/mnb_rates",
   "iot_class": "cloud_polling",
-  "requirements": ["mnb"]
+  "issue_tracker": "https://github.com/amaximus/mnb_rates/issues",
+  "requirements": ["mnb"],
+  "version": "0.0.1"
 }
