@@ -6,7 +6,7 @@
 
 This custom component fetches MNB (Hungarian National Bank) daily exchange rates from mnb.hu.
 
-This custom component requires [Mnb python package](https://github.com/belidzs/mnb) package by @belidzs available on PyPI but also set as a python requirement.
+This custom component requires [https://github.com/belidzs/mnb](https://github.com/belidzs/mnb) package available on PyPI but also set as a python requirement.
 
 The state of the sensor will be:
 * the rate of the currency if only one currency is filtered via `currencies` list
