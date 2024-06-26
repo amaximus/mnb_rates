@@ -1,6 +1,5 @@
 {
   "name": "MNB rates",
   "country": ["HU"],
-  "render_readme": true,
-  "iot_class": ["Cloud Polling"]
+  "render_readme": true
 }
