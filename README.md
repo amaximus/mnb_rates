@@ -9,8 +9,10 @@ This custom component fetches MNB (Hungarian National Bank) daily exchange rates
 This custom component requires [https://github.com/belidzs/mnb](https://github.com/belidzs/mnb) package available on PyPI but also set as a python requirement.
 
 The state of the sensor will be:
-* `0` for successful data fetch OR
-* `1` for unsuccessful data fetch
+* if only one currency is filtered in the `currencies` list, the state will be the rate of that currency
+* in all other cases (multiple or no currencies filtered), the state will be:
+..* `0` for successful data fetch OR
+..* `1` for unsuccessful data fetch
 
 Currency names, rates and units are added into the `rates` attribute.
 

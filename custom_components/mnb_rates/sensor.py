@@ -73,6 +73,8 @@ class MNBCurrenciesSensor(Entity):
         self._cunit = []
         self._allcurrencies = []
         self._currencies = currencies
+        self._currency = None
+        self._cunit1 = None
         self._icon = DEFAULT_ICON
 
     @property
@@ -80,14 +82,16 @@ class MNBCurrenciesSensor(Entity):
         attr = {"rates": []}
 
         if 'rates' in self._cdata:
-            for item in self._cdata['rates']:
-                if len(self._currencies) > 0:
-                    if item.get('currency') not in self._currencies:
-                        continue
-                _LOGGER.debug("found: " + item.get('currency') + ": " + str(item.get('rate')))
-                attr['rates'].append({"currency": item.get('currency'),"rate": item.get('rate'), "unit": self._cunit.get(item.get('currency'))})
-        else:
-            self._state = 1
+            if len(self._currencies) == 1:
+                attr["currency"] = self._currency
+                attr["unit"] = self._cunit1
+            else:
+                for item in self._cdata['rates']:
+                    if len(self._currencies) > 0:
+                         if item.get('currency') not in self._currencies:
+                             continue
+                    _LOGGER.debug("found: " + item.get('currency') + ": " + str(item.get('rate')))
+                    attr['rates'].append({"currency": item.get('currency'),"rate": item.get('rate'), "unit": self._cunit.get(item.get('currency'))})
 
         attr["provider"] = CONF_ATTRIBUTION
         attr["last_poll"] = self._last_poll
@@ -103,6 +107,14 @@ class MNBCurrenciesSensor(Entity):
             _LOGGER.debug(str(self._all_currencies))
 
             self._cunit = await async_get_cunit(self)
+            if len(self._currencies) == 1:
+                for item in self._cdata['rates']:
+                    if item.get('currency') not in self._currencies:
+                        continue
+                    self._state = item.get('rate')
+                    self._currency = item.get('currency')
+                    self._cunit1 = self._cunit.get(item.get('currency'))
+                    break
 
         dt_now = datetime.now()
         self._last_poll = dt_now.strftime("%Y/%m/%d %H:%M")
