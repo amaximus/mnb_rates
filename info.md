@@ -30,6 +30,7 @@ platform: mnb_rates
 currencies:
   - EUR
   - USD
+  - JPY
 ```
 ![MNB rates filtered](https://raw.githubusercontent.com/amaximus/mnb_rates/main/mnb_rates2.png)
 
