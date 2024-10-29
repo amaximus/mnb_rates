@@ -8,19 +8,12 @@ This custom component fetches MNB (Hungarian National Bank) daily exchange rates
 
 This custom component requires [https://github.com/belidzs/mnb](https://github.com/belidzs/mnb) package available on PyPI but also set as a python requirement.
 
-The state of the sensor will be:
-* if only one currency is filtered in the `currencies` list, the state will be the rate of that currency
-* in all other cases (multiple or no currencies filtered), the state will be:
-..* `0` for successful data fetch OR
-..* `1` for unsuccessful data fetch
-
-Currency names, rates and units are added into the `rates` attribute.
-
 #### Installation
 The easiest way to install it is through [HACS (Home Assistant Community Store)](https://github.com/hacs/integration),
 search for <i>MNB rates</i> in the Integrations.<br />
 
-Sensor of this platform should be configured as per below information.
+This platform should be configured as per below information. It will create a sensor for each listed currency named
+sensor.mnb_<currency_trigram> (e.g. sensor.mnb_eur, sensor.mnb_usd, etc.)
 
 #### Configuration:
 Define sensor with the following configuration parameters:<br />
@@ -28,14 +21,12 @@ Define sensor with the following configuration parameters:<br />
 ---
 | Name | Optional | `Default` | Description |
 | :---- | :---- | :------- | :----------- |
-| name | **Y** | `mnb_rates` | name of the sensor |
-| currencies | **Y** | `` | list of currency trigrams to filter on. |
+| currencies | **N** | `` | list of currency trigrams to filter on. |
 ---
 
 #### Example
 ```
 platform: mnb_rates
-name: 'MNB árfolyamok'
 currencies:
   - EUR
   - USD

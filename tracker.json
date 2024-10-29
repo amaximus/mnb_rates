@@ -1,8 +1,8 @@
 {
   "mnb_rates": {
-    "version": "0.0.2",
-    "updated_at": "2024-06-26",
+    "version": "1.0.0",
+    "updated_at": "2024-10-29",
     "visit_repo": "https://github.com/amaximus/mnb_rates",
-    "changelog": "https://github.com/amaximus/mnb_rates/releases/0.0.2"
+    "changelog": "https://github.com/amaximus/mnb_rates/releases/1.0.0"
   }
 }
